@@ -9,13 +9,18 @@
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject var appData: AppData
+    
     var body: some View {
-        Text("Hello, World!")
+        VStack {
+            Text(appData.selectedSubCategory.rawValue)
+            Text(appData.selectedCategory.rawValue)
+        }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView().environmentObject(AppData())
     }
 }

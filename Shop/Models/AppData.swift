@@ -64,6 +64,7 @@ class AppData: ObservableObject {
     init() {
         selectedCategory = .women
         selectedSubCategory = .handbag
+       
     }
     
 }
