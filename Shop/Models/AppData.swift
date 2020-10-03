@@ -61,9 +61,39 @@ class AppData: ObservableObject {
     @Published var selectedSubCategory: ShopItem.SubCategory
     @Published var shopProducts: [ShopItemViewModel] = [] // producated of selected subcategory
     
+    let filename = "shop"
+    let ext = "json"
+    var manager: FileManager
+    
     init() {
         selectedCategory = .women
         selectedSubCategory = .handbag
+        manager = FileManager.default
+        shopProducts = load().map({ShopItemViewModel(shopItem: $0)})
+        print(shopProducts)
+        
+    }
+    
+    func load() -> [ShopItem] {
+        
+        // get path of that points to resource file in bundle
+        let bundle = Bundle.main
+        guard let filePath = bundle.path(forResource: filename, ofType: ext) else {
+            fatalError("Cannot locate file \(filename).\(ext)")
+        }
+        
+        // load contents of file at path
+        guard let shopData = manager.contents(atPath: filePath) else {
+            fatalError("Cannot load contents file \(filename).\(ext)")
+        }
+        
+        // parse loaded data
+        do {
+             let shopItems = try JSONDecoder().decode([ShopItem].self, from: shopData)
+             return shopItems
+        } catch {
+             fatalError("Cannot parse contents file \(filename).\(ext)")
+        }
        
     }
     
