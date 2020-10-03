@@ -1,0 +1,46 @@
+[
+    {
+        "name": "office code",
+        "price": 200,
+        "imageName": "bag_1",
+        "id": "bag_1",
+        "category": "hand bag"
+    },
+    {
+        "name": "belt bag",
+        "price": 230,
+        "imageName": "bag_2",
+        "id": "bag_2",
+        "category": "hand bag"
+
+    },
+    {
+        "name": "hang top",
+        "price": 300,
+        "imageName": "bag_3",
+        "id": "bag_3",
+        "category": "hand bag"
+
+    },
+    {
+        "name": "old fashion",
+        "price": 350,
+        "imageName": "bag_4",
+        "id": "bag_4",
+        "category": "hand bag"
+    },
+    {
+        "name": "fancy bag",
+        "price": 400,
+        "imageName": "bag_5",
+        "id": "bag_5",
+        "category": "hand bag"
+    },
+    {
+        "name": "bird bag",
+        "price": 450,
+        "imageName": "bag_6",
+        "id": "bag_6",
+        "category": "hand bag"
+    },
+]
