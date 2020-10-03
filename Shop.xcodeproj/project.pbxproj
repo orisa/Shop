@@ -56,6 +56,10 @@
 		84687C0A2528AC5F00AD4B84 /* Shop */ = {
 			isa = PBXGroup;
 			children = (
+				84687C222528B0BB00AD4B84 /* Resources */,
+				84687C212528B07000AD4B84 /* Screens */,
+				84687C202528B05D00AD4B84 /* Supporting Views */,
+				84687C1F2528B04E00AD4B84 /* Models */,
 				84687C0B2528AC5F00AD4B84 /* AppDelegate.swift */,
 				84687C0D2528AC5F00AD4B84 /* SceneDelegate.swift */,
 				84687C0F2528AC5F00AD4B84 /* ContentView.swift */,
@@ -73,6 +77,34 @@
 				84687C142528AC6A00AD4B84 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		84687C1F2528B04E00AD4B84 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		84687C202528B05D00AD4B84 /* Supporting Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Supporting Views";
+			sourceTree = "<group>";
+		};
+		84687C212528B07000AD4B84 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		84687C222528B0BB00AD4B84 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
