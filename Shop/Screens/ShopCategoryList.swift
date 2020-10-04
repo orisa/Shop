@@ -4,7 +4,7 @@
 //
 //  Created by Admin on 10/4/20.
 //  Copyright © 2020 rapid interactive. All rights reserved.
-//
+//  Displays products for selected subcategory of selected category
 
 import SwiftUI
 
@@ -17,7 +17,7 @@ struct ShopCategoryList: View {
             NavBar()
             Text("CategoryTitle")
             SubcategoryMenubar()
-            CategoryProducts()
+            CategoryProducts(products: [])
         }
         //.navigationBarTitle(Text(appData.selectedCategory.rawValue))
         .navigationBarHidden(true)
@@ -27,8 +27,12 @@ struct ShopCategoryList: View {
 
 struct ShopCategoryList_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationView {
-            ShopCategoryList().environmentObject(AppData())
+        Group {
+            CategoryProducts(products: AppData().shopProducts)
+                .previewLayout(.sizeThatFits)
+//            NavigationView {
+//                ShopCategoryList().environmentObject(AppData())
+//            }
         }
     }
 }
@@ -53,9 +57,13 @@ struct SubcategoryMenubar: View {
 }
 
 struct CategoryProducts: View {
+    
+    var products: [ShopItemViewModel]
    
     var body: some View {
-        Text("Category Products")
+        ScrollView {
+            Text("Category Products")
+        }
     }
 }
 
