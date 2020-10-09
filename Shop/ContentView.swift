@@ -12,10 +12,7 @@ struct ContentView: View {
     @EnvironmentObject var appData: AppData
     
     var body: some View {
-        VStack {
-            Text(appData.selectedSubCategory.rawValue)
-            Text(appData.selectedCategory.rawValue)
-        }
+         ShopCategoryList()
     }
 }
 

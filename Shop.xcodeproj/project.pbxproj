@@ -32,6 +32,7 @@
 		84687C4B2529B16C00AD4B84 /* ModularGridStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84687C3C2529B16B00AD4B84 /* ModularGridStyle.swift */; };
 		84687C4C2529B16C00AD4B84 /* GridItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84687C3D2529B16B00AD4B84 /* GridItem.swift */; };
 		84687C4D2529B16C00AD4B84 /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84687C3E2529B16B00AD4B84 /* Grid.swift */; };
+		847E6590252DA06A00B7141F /* ShopProduct2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E658F252DA06A00B7141F /* ShopProduct2.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,7 @@
 		84687C3C2529B16B00AD4B84 /* ModularGridStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModularGridStyle.swift; sourceTree = "<group>"; };
 		84687C3D2529B16B00AD4B84 /* GridItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridItem.swift; sourceTree = "<group>"; };
 		84687C3E2529B16B00AD4B84 /* Grid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
+		847E658F252DA06A00B7141F /* ShopProduct2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopProduct2.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				84687C2925299E8100AD4B84 /* ShopProduct.swift */,
+				847E658F252DA06A00B7141F /* ShopProduct2.swift */,
 			);
 			path = "Supporting Views";
 			sourceTree = "<group>";
@@ -294,6 +297,7 @@
 				84687C492529B16C00AD4B84 /* EnvironmentValues+GridStyle.swift in Sources */,
 				84687C472529B16C00AD4B84 /* GridPreferences.swift in Sources */,
 				84687C2A25299E8100AD4B84 /* ShopProduct.swift in Sources */,
+				847E6590252DA06A00B7141F /* ShopProduct2.swift in Sources */,
 				84687C4B2529B16C00AD4B84 /* ModularGridStyle.swift in Sources */,
 				84687C432529B16C00AD4B84 /* GridStyle.swift in Sources */,
 				84687C482529B16C00AD4B84 /* GridPreferencesModifier.swift in Sources */,
