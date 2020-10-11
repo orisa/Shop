@@ -12,10 +12,33 @@ struct ContentView: View {
     @EnvironmentObject var appData: AppData
     
     var body: some View {
-        VStack {
-            Text(appData.selectedSubCategory.rawValue)
-            Text(appData.selectedCategory.rawValue)
-        }
+        
+       // NavigationView {
+            TabView(content: {
+                Explore()
+                    .tabItem({
+                        Image(systemName: "viewfinder")
+                        Text("explore")
+                    })
+                Text("Search")
+                    .tabItem({
+                        Image(systemName: "magnifyingglass")
+                        Text("search")
+                    })
+                Text("Cart")
+                    .tabItem({
+                        Image(systemName: "cart")
+                        Text("cart")
+                    })
+                Text("Favorite")
+                    .tabItem({
+                        Image(systemName: "heart")
+                        Text("heart")
+                    })
+            })
+       // }
+       
+ 
     }
 }
 
