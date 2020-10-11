@@ -132,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				84687C2925299E8100AD4B84 /* ShopProduct.swift */,
+				847E658F252DA06A00B7141F /* ShopProduct2.swift */,
 			);
 			path = "Supporting Views";
 			sourceTree = "<group>";
@@ -298,6 +299,7 @@
 				84687C492529B16C00AD4B84 /* EnvironmentValues+GridStyle.swift in Sources */,
 				84687C472529B16C00AD4B84 /* GridPreferences.swift in Sources */,
 				84687C2A25299E8100AD4B84 /* ShopProduct.swift in Sources */,
+				847E6590252DA06A00B7141F /* ShopProduct2.swift in Sources */,
 				84687C4B2529B16C00AD4B84 /* ModularGridStyle.swift in Sources */,
 				84687C432529B16C00AD4B84 /* GridStyle.swift in Sources */,
 				84687C482529B16C00AD4B84 /* GridPreferencesModifier.swift in Sources */,

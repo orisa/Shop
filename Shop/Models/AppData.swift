@@ -9,6 +9,9 @@
 import Foundation
 
 // Data Models
+typealias Category = ShopItem.Category
+typealias SubCategory = ShopItem.SubCategory
+
 struct ShopItem: Codable {
     
     var name: String
@@ -57,13 +60,26 @@ struct ShopItemViewModel: Identifiable {
 
 class AppData: ObservableObject {
      
-    @Published var selectedCategory: ShopItem.Category
-    @Published var selectedSubCategory: ShopItem.SubCategory
+    @Published var selectedCategory: ShopItem.Category = .women
+    @Published var selectedSubCategory: ShopItem.SubCategory = .dresses
     @Published var shopProducts: [ShopItemViewModel] = [] // producated of selected subcategory
     
     let filename = "shop"
     let ext = "json"
     var manager: FileManager
+    
+    var selectedCategoryTitle: String {
+        selectedCategory.rawValue.capitalized
+    }
+    
+    var selectedSubcategoryTitle: String {
+        selectedSubCategory.rawValue.capitalized
+    }
+       
+    
+    var subcategoryTitles: [String] {
+        SubCategory.allCases.map({$0.rawValue.capitalized})
+    }
     
     init() {
         selectedCategory = .women
@@ -73,6 +89,8 @@ class AppData: ObservableObject {
         print(shopProducts)
         
     }
+    
+    
     
     func load() -> [ShopItem] {
         
