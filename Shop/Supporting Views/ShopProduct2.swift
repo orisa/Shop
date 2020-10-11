@@ -2,7 +2,7 @@
 //  ShopProduct2.swift
 //  Shop
 //
-//  Created by Admin on 10/7/20.
+//  Created by Admin on 10/11/20.
 //  Copyright © 2020 rapid interactive. All rights reserved.
 //
 
