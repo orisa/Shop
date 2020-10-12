@@ -8,28 +8,46 @@
 
 import SwiftUI
 
+class ListData: ObservableObject {
+    @Published var navbarTitleHidden = false
+}
+
 struct ShopCategoryList: View {
     
     @EnvironmentObject var appData: AppData
+    @Binding var navBarHidden: Bool
+    @State var navBarTitle = "Women"
+    @ObservedObject var listData = ListData()
     
     var body: some View {
         GeometryReader { proxy in
             VStack {
                 Group {
-                    NavBar(category: self.appData.selectedCategoryTitle, size: proxy.size)
+                   // NavBar(category: self.appData.selectedCategoryTitle, size: proxy.size)              
+                     
                     SubcategoryMenubar(subCategoryTitles: self.appData.subcategoryTitles,
                                        selectedSubCategory: self.appData.selectedSubcategoryTitle)
                         .padding(.bottom, 20)
                 }
                  .padding(.horizontal, 20)
-                CategoryProducts(products:self.appData.shopProducts, screenSize: proxy.size)
+                CategoryProducts(products:self.appData.shopProducts,
+                                 screenSize: proxy.size, listData: self.listData)
                    
+                Spacer()
             }
-                
+            
         }
-        .navigationBarHidden(true)
-        .navigationBarTitle("")
-       // .edgesIgnoringSafeArea(.all)
+         .navigationBarTitle(listData.navbarTitleHidden ? "": "Women", displayMode: .automatic)
+
+     
+        .navigationBarItems(trailing: Text("done"))
+        // .accentColor(.green)
+        .onAppear {
+            self.navBarHidden = true
+            self.listData.navbarTitleHidden = false
+        }
+        
+     
     
       
     }
@@ -53,8 +71,10 @@ struct ShopCategoryList_Previews: PreviewProvider {
            
             
             NavigationView {
-                ShopCategoryList().environmentObject(AppData())
+                ShopCategoryList(navBarHidden: .constant(false)).environmentObject(AppData())
+                  
             }
+           
         }
          .previewLayout(.sizeThatFits)
     }
@@ -67,6 +87,7 @@ struct NavBar: View {
     var size: CGSize
    
     var body: some View {
+        
         VStack(alignment: .leading, spacing: 0) {
             HStack {
                 HStack {
@@ -89,8 +110,7 @@ struct NavBar: View {
              }
             Text(category)
                 .font(.largeTitle)
-               //  .padding(.leading, 10)
-                
+ 
          }
      }
 }
@@ -125,8 +145,13 @@ struct SubcategoryMenubar: View {
 struct CategoryProducts: View {
     
     var products: [ShopItemViewModel]
+    @State var categoryLinkActive = false
+    @State var selectedPdt: ShopItemViewModel?
+    @State var pdtId: String?
+  
   
     var screenSize: CGSize = CGSize(width: 320, height: 568)
+      @ObservedObject var listData: ListData
     var rowHeight: CGFloat {
         0.32 * screenSize.height
      // 0.36 * screenSize.height
@@ -139,12 +164,28 @@ struct CategoryProducts: View {
    
     var body: some View {
         
-          ScrollView {
+          return ScrollView {
+            
+            selectedPdt.map{
+                NavigationLink(destination:  ShopDetail(categoryLinkActive: .constant(false),
+                                listData: listData),
+                               tag: $0.id, selection: self.$pdtId, label: {
+                    EmptyView()
+                })
+            }
         
-            Grid(products) { product in
-                 ShopProduct2(spacing: 0.08 * self.rowHeight,
-                             topHeight: 0.70 * self.rowHeight,
-                             bottomSpacing: 0.03 * self.rowHeight, product: product)
+             Grid(products) { product in
+                ShopProduct2(
+                                spacing: 0.08 * self.rowHeight,
+                                topHeight: 0.70 * self.rowHeight,
+                                bottomSpacing: 0.03 * self.rowHeight, product: product
+                             )
+                .contentShape(Rectangle())
+                    .onTapGesture {
+                        self.selectedPdt = product
+                        self.pdtId = product.id
+                }
+             
                  
             }
             .padding(.horizontal, gridSpacing)

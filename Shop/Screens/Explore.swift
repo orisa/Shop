@@ -9,18 +9,30 @@
 import SwiftUI
 
 struct Explore: View {
+    
+    @State private var navBarHidden = false
     var body: some View {
-       
+        
         NavigationView {
             VStack {
-                NavigationLink("Women", destination: ShopCategoryList())
-                NavigationLink("Men", destination: ShopCategoryList())
-                NavigationLink("Girls", destination: ShopCategoryList())
-                NavigationLink("Boys", destination: ShopCategoryList())
+                NavigationLink("Women", destination: ShopCategoryList(navBarHidden: $navBarHidden))
+                   
+//                NavigationLink("Men", destination: ShopCategoryList())
+//                NavigationLink("Girls", destination: ShopCategoryList())
+//                NavigationLink("Boys", destination: ShopCategoryList())
                 Spacer()
             }
+            .navigationBarTitle(navBarHidden ? "": "Explore", displayMode: .large)
+           
+
+            .onAppear {
+                self.navBarHidden = false
+            }
+          
+            
         }
-        .navigationBarTitle("Explore", displayMode: .inline)
+         
+      
        
      
     }
@@ -28,6 +40,9 @@ struct Explore: View {
 
 struct Explore_Previews: PreviewProvider {
     static var previews: some View {
-        Explore()
+         
+            Explore()
+        
     }
 }
+
