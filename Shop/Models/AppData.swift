@@ -53,6 +53,7 @@ struct ShopItemViewModel: Identifiable {
         
         let priceFormatter = NumberFormatter()
         priceFormatter.numberStyle = .currency
+        priceFormatter.roundingMode = .floor
         return priceFormatter.string(from: NSNumber(value: shopItem.price)) ?? "N/A"
     }
     

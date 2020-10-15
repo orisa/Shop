@@ -20,6 +20,11 @@ struct Explore: View {
                 
                 NavigationLink("Women", destination: ShopCategoryList(navBarHidden: $navBarHidden)
                 )
+                Text("Women")
+                    .onTapGesture {
+                        print("Tapping")
+                        self.appData.tintColor = .red
+                }
                     
                 
                    
@@ -28,11 +33,14 @@ struct Explore: View {
 //                NavigationLink("Boys", destination: ShopCategoryList())
                 Spacer()
             }
+          
             .navigationBarTitle(navBarHidden ? "": "Explore", displayMode: .large)
             .onAppear {
+                self.appData.tintColor = .brown
                 self.navBarHidden = false
             }
         }
+       // .accentColor(Color.black)
         .navigationBarColor(nil, tintColor: appData.tintColor, titleTextColor: .black)
         
         

@@ -26,18 +26,23 @@ struct ShopCategoryList: View {
                      
                     SubcategoryMenubar(subCategoryTitles: self.appData.subcategoryTitles,
                                        selectedSubCategory: self.appData.selectedSubcategoryTitle)
-                        .padding(.bottom, 20)
+                     
                 }
                  .padding(.horizontal, 20)
+              
                 CategoryProducts(products:self.appData.shopProducts,
                                  screenSize: proxy.size, listData: self.listData)
+                    
                    
                 Spacer()
             }
             
         }
          .navigationBarTitle(listData.navbarTitleHidden ? "": "Women", displayMode: .automatic)
-        .navigationBarItems(trailing: Text("done"))
+        .navigationBarItems(trailing:
+            Image(systemName: "textformat.size")
+                .font(.system(size: 32, weight: .medium))
+        )
         .onAppear {
             self.navBarHidden = true
             self.listData.navbarTitleHidden = false
@@ -48,9 +53,7 @@ struct ShopCategoryList: View {
 
 struct ShopCategoryList_Previews: PreviewProvider {
     static var previews: some View {
-//        NavigationView {
-//                       ShopCategoryList().environmentObject(AppData())
-//                   }
+ 
         
         Group {
            NavBar(category: "Women", size: CGSize(width: 360, height: 570))
@@ -127,7 +130,7 @@ struct SubcategoryMenubar: View {
                             subCategoryTitle == self.selectedSubCategory ?
                                 Color.black : Color.gray
                          )
-                    //.fontWeight(.medium)
+                   
                 }
             }
         }
@@ -146,7 +149,7 @@ struct CategoryProducts: View {
     var screenSize: CGSize = CGSize(width: 320, height: 568)
       @ObservedObject var listData: ListData
     var rowHeight: CGFloat {
-        0.32 * screenSize.height
+        0.4 * screenSize.height
      // 0.36 * screenSize.height
     }
     
@@ -170,9 +173,10 @@ struct CategoryProducts: View {
              Grid(products) { product in
                 ShopProduct2(
                                 spacing: 0.08 * self.rowHeight,
-                                topHeight: 0.70 * self.rowHeight,
+                                topHeight: 0.7 * self.rowHeight,
                                 bottomSpacing: 0.03 * self.rowHeight, product: product
                              )
+                  //  .padding(.top, 52)
                 .contentShape(Rectangle())
                     .onTapGesture {
                         self.selectedPdt = product
@@ -182,14 +186,12 @@ struct CategoryProducts: View {
                  
             }
             .padding(.horizontal, gridSpacing)
+            .padding(.top, 32)
             .gridStyle(
                 ModularGridStyle(columns: 2, rows: .fixed(rowHeight), spacing: gridSpacing)
             )
         }
-       // .padding(.horizontal, gridSpacing)
-          .onAppear {
-            print(self.screenSize)
-        }
+        
     }
 }
 

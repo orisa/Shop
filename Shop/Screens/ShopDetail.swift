@@ -40,6 +40,7 @@ struct ShopDetail: View {
                     Text(self.product.name),
                     displayMode: .large
                 )
+            
                 .onAppear {
                     print(self.listData.navbarTitleHidden)
                     self.listData.navbarTitleHidden = true
@@ -49,6 +50,7 @@ struct ShopDetail: View {
                 
  
         }
+       
         .navigationBarColor(
             UIColor(named: self.product.imageName)
         )

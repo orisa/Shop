@@ -30,7 +30,7 @@ struct ShopProduct2: View {
             .frame(height: topHeight)
             .background(
                 RoundedRectangle(cornerRadius: topCornerRadius)
-                    .fill(Color.init(red: 53/255, green: 117/255, blue: 158/255))
+                    .fill(Color(product.imageName))
             )
             
             VStack(alignment: .leading, spacing: bottomSpacing) {

@@ -36,6 +36,7 @@ struct ContentView: View {
                         Text("heart")
                     })
             })
+            .accentColor(.black)
          
        
  
