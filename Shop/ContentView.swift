@@ -12,8 +12,8 @@ struct ContentView: View {
     @EnvironmentObject var appData: AppData
     
     var body: some View {
-        
-      //  NavigationView {
+      //  DetailBottomsection(product: appData.shopProducts[0])
+            
             TabView(content: {
                 Explore()
                     .tabItem({
@@ -36,11 +36,7 @@ struct ContentView: View {
                         Text("heart")
                     })
             })
-           //.navigationBarColor(.green, tintColor: .brown)
-               
-               
-             
-      //  }
+         
        
  
     }
@@ -56,14 +52,15 @@ struct NavigationBarModifier: ViewModifier {
         
     var backgroundColor: UIColor?
     var tintColor: UIColor?
+    var titleTextColor: UIColor?
     
-    init( backgroundColor: UIColor?, tintColor: UIColor?) {
+    init( backgroundColor: UIColor? , tintColor: UIColor? = .black, titleTextColor: UIColor? = .black) {
         self.backgroundColor = backgroundColor
         let coloredAppearance = UINavigationBarAppearance()
         coloredAppearance.configureWithTransparentBackground()
-        coloredAppearance.backgroundColor = .red
-        coloredAppearance.titleTextAttributes = [.foregroundColor: UIColor.blue]
-        coloredAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.black]
+        coloredAppearance.backgroundColor = backgroundColor
+        coloredAppearance.titleTextAttributes = [.foregroundColor: titleTextColor ?? UIColor.red]
+        coloredAppearance.largeTitleTextAttributes = [.foregroundColor: titleTextColor ?? UIColor.blue]
         
         UINavigationBar.appearance().standardAppearance = coloredAppearance
         UINavigationBar.appearance().compactAppearance = coloredAppearance
@@ -90,8 +87,9 @@ struct NavigationBarModifier: ViewModifier {
 
 extension View {
  
-    func navigationBarColor(_ backgroundColor: UIColor?, tintColor: UIColor?) -> some View {
-        self.modifier(NavigationBarModifier(backgroundColor: backgroundColor, tintColor: tintColor))
+    func navigationBarColor(_ backgroundColor: UIColor?, tintColor: UIColor? = .black, titleTextColor: UIColor? = .black) -> some View {
+        print("nav bar")
+        return self.modifier(NavigationBarModifier(backgroundColor: backgroundColor, tintColor: tintColor, titleTextColor: titleTextColor))
     }
 
 }

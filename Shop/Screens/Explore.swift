@@ -11,11 +11,17 @@ import SwiftUI
 struct Explore: View {
     
     @State private var navBarHidden = false
+    @EnvironmentObject var appData: AppData
+
     var body: some View {
         
         NavigationView {
             VStack {
-                NavigationLink("Women", destination: ShopCategoryList(navBarHidden: $navBarHidden))
+                
+                NavigationLink("Women", destination: ShopCategoryList(navBarHidden: $navBarHidden)
+                )
+                    
+                
                    
 //                NavigationLink("Men", destination: ShopCategoryList())
 //                NavigationLink("Girls", destination: ShopCategoryList())
@@ -23,26 +29,20 @@ struct Explore: View {
                 Spacer()
             }
             .navigationBarTitle(navBarHidden ? "": "Explore", displayMode: .large)
-           
-
             .onAppear {
                 self.navBarHidden = false
             }
-          
-            
         }
-         
-      
-       
-     
+        .navigationBarColor(nil, tintColor: appData.tintColor, titleTextColor: .black)
+        
+        
+        
     }
 }
 
 struct Explore_Previews: PreviewProvider {
     static var previews: some View {
-         
             Explore()
-        
     }
 }
 

@@ -23,7 +23,6 @@ struct ShopCategoryList: View {
         GeometryReader { proxy in
             VStack {
                 Group {
-                   // NavBar(category: self.appData.selectedCategoryTitle, size: proxy.size)              
                      
                     SubcategoryMenubar(subCategoryTitles: self.appData.subcategoryTitles,
                                        selectedSubCategory: self.appData.selectedSubcategoryTitle)
@@ -38,17 +37,11 @@ struct ShopCategoryList: View {
             
         }
          .navigationBarTitle(listData.navbarTitleHidden ? "": "Women", displayMode: .automatic)
-
-     
         .navigationBarItems(trailing: Text("done"))
-        // .accentColor(.green)
         .onAppear {
             self.navBarHidden = true
             self.listData.navbarTitleHidden = false
         }
-        
-     
-    
       
     }
 }
@@ -168,7 +161,7 @@ struct CategoryProducts: View {
             
             selectedPdt.map{
                 NavigationLink(destination:  ShopDetail(categoryLinkActive: .constant(false),
-                                listData: listData),
+                                listData: listData, product: $0),
                                tag: $0.id, selection: self.$pdtId, label: {
                     EmptyView()
                 })

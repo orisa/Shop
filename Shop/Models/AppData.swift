@@ -7,6 +7,7 @@
 //  Implements models used by app
 
 import Foundation
+import UIKit
 
 // Data Models
 typealias Category = ShopItem.Category
@@ -20,6 +21,8 @@ struct ShopItem: Codable {
     var id: String
     var category: Category
     var subcategory: SubCategory
+    var description: String
+    var size: Double
     
     enum Category: String, Hashable, CaseIterable, Codable  {
         case women = "women"
@@ -56,6 +59,14 @@ struct ShopItemViewModel: Identifiable {
     var imageName: String {
         shopItem.imageName
     }
+    
+    var size: String {
+        return String(shopItem.size)
+    }
+    
+    var description: String {
+        return shopItem.description
+    }
 }
 
 class AppData: ObservableObject {
@@ -63,6 +74,7 @@ class AppData: ObservableObject {
     @Published var selectedCategory: ShopItem.Category = .women
     @Published var selectedSubCategory: ShopItem.SubCategory = .dresses
     @Published var shopProducts: [ShopItemViewModel] = [] // producated of selected subcategory
+    @Published var tintColor: UIColor? = UIColor.black
     
     let filename = "shop"
     let ext = "json"

@@ -5,7 +5,9 @@
         "imageName": "bag_1",
         "id": "bag_1",
         "category": "women",
-        "subcategory": "hand bag"
+        "subcategory": "hand bag",
+        "description": "The MDN Browser Compatibility Report is a deeper dive into these issues,attempting to identify specific issues causing a lot of frustration, and what could be done to improve the situation. The research consisted of a survey focused on browser compatibility , followed by interviews with 13 volunteers among the survey participants.",
+        "size": 7.5
     },
     {
         "name": "belt bag",
@@ -13,7 +15,9 @@
         "imageName": "bag_2",
         "id": "bag_2",
         "category": "women",
-        "subcategory": "hand bag"
+        "subcategory": "hand bag",
+        "description": "The MDN Browser Compatibility Report is a deeper dive into these issues,attempting to identify specific issues causing a lot of frustration, and what could be done to improve the situation. The research consisted of a survey focused on browser compatibility , followed by interviews with 13 volunteers among the survey participants.",
+         "size": 8.5
 
     },
     {
@@ -22,7 +26,9 @@
         "imageName": "bag_3",
         "id": "bag_3",
          "category": "women",
-        "subcategory": "hand bag"
+        "subcategory": "hand bag",
+          "description": "The MDN Browser Compatibility Report is a deeper dive into these issues,attempting to identify specific issues causing a lot of frustration, and what could be done to improve the situation. The research consisted of a survey focused on browser compatibility , followed by interviews with 13 volunteers among the survey participants.",
+         "size": 8.0
 
     },
     {
@@ -31,7 +37,9 @@
         "imageName": "bag_4",
         "id": "bag_4",
         "category": "women",
-        "subcategory": "hand bag"
+        "subcategory": "hand bag",
+         "description": "The MDN Browser Compatibility Report is a deeper dive into these issues,attempting to identify specific issues causing a lot of frustration, and what could be done to improve the situation. The research consisted of a survey focused on browser compatibility , followed by interviews with 13 volunteers among the survey participants.",
+         "size": 9.2
     },
     {
         "name": "fancy bag",
@@ -39,7 +47,9 @@
         "imageName": "bag_5",
         "id": "bag_5",
          "category": "women",
-        "subcategory": "hand bag"
+        "subcategory": "hand bag",
+          "description": "The MDN Browser Compatibility Report is a deeper dive into these issues,attempting to identify specific issues causing a lot of frustration, and what could be done to improve the situation. The research consisted of a survey focused on browser compatibility , followed by interviews with 13 volunteers among the survey participants.",
+         "size": 7.5
     },
     {
         "name": "bird bag",
@@ -47,6 +57,8 @@
         "imageName": "bag_6",
         "id": "bag_6",
         "category": "women",
-        "subcategory": "hand bag"
+        "subcategory": "hand bag",
+         "description": "The MDN Browser Compatibility Report is a deeper dive into these issues,attempting to identify specific issues causing a lot of frustration, and what could be done to improve the situation. The research consisted of a survey focused on browser compatibility , followed by interviews with 13 volunteers among the survey participants.",
+          "size": 12.5
     },
 ]
