@@ -10,31 +10,27 @@ import SwiftUI
 
 struct ShopDetail: View {
     
+    // states
     @Binding var categoryLinkActive: Bool
     @ObservedObject var listData: ListData
     @EnvironmentObject var appData: AppData
     
+    // stored properties
     var product: ShopItemViewModel
     
     var body: some View {
         GeometryReader { proxy in
-             
                 ZStack(alignment: .bottom) {
                     Color(self.product.imageName)
                     DetailTopsection(price: self.product.price,
                                          imageName: self.product.imageName,
-                                          size: CGSize(width: 375, height: 461
-                                    )
-                        
-                        
+                                         size: proxy.size
+                                        //size: CGSize(width: 375, height: 461)
                     )
                     .zIndex(1)
                    
-                    DetailBottomsection(product: self.product, size:  CGSize(width: 375, height: 461), btnColor: .red)
-                         
-                       
-                        
-                    
+//                    DetailBottomsection(product: self.product, size:  CGSize(width: 375, height: 461), btnColor: .red)
+                    DetailBottomsection(product: self.product, size: proxy.size, btnColor: .red)
                 }
                 .navigationBarTitle(
                     Text(self.product.name),
